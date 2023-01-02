@@ -20,6 +20,7 @@ import { SectionCategoriesComponent } from './components/section-categories/sect
 import { CardComponent } from './components/card/card.component';
 import { SubCategeriesComponent } from './components/sub-categeries/sub-categeries.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     SectionCategoriesComponent,
     CardComponent,
     SubCategeriesComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
