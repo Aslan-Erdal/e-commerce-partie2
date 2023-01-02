@@ -1,1 +1,34 @@
-<p>payment works!</p>
+
+    <!-- PAIEMENT SECTION-->
+    <main class="payment-container-pyt flex-pyt">
+
+      <div class="payment-box1-pyt flex-pyt">
+          <h1>Paiement</h1>
+
+          <!-- PROMO START HERE -->
+          <div class="promo-payment-pyt">
+              <form>
+                  <label for="promo-input-pyt">Code promo :
+                      <input type="text" placeholder="Ajouter votre code promo" name="promo-input-pyt" id="promo-input-pyt">
+                      <input type="button" value="Entrer">
+                  </label>
+              </form>
+          </div>
+
+          <!-- MY EMAIL BLOCK START HERE -->
+          <div class="email-payment-pyt">
+              <p>Votre email :
+                  <span>loremipsum@gmail.com</span>
+              </p>
+          </div>
+
+          <app-delivery-address></app-delivery-address>
+      </div>
+
+      <div class="payment-box2-pyt flex-pyt">
+        <app-article-payment></app-article-payment>
+        <app-payment-credit-card></app-payment-credit-card>
+      </div>
+
+        </main>
+
