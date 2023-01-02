@@ -1,0 +1,12 @@
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}

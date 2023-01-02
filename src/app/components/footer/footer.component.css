@@ -1,0 +1,94 @@
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h2{
+    color: white;
+    margin-top: 0;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+
+.paiement img{
+    display: inline-block;
+    padding: 20px;
+    width: 110;
+    
+}
+
+
+.paiement{
+    background: black;
+    padding: 0 20px;
+}
+
+.footer{
+    background: black;
+    padding: 30px;
+}
+
+.footer img{
+    display: inline-block;
+    width: 65px;
+    height: 65px;
+
+}
+
+.bloc4{
+    
+    background: black;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.bloc4 button{
+    background: black;
+    color: white;
+    border: 1px solid white;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+#email{
+    width: 250px;
+    min-height: 25px;
+    border-radius: 5px;
+}
+
+.bloc1, .bloc2, .bloc3{
+    width: 33%;
+    min-height: 220px;
+    flex-direction: column;
+    align-items: flex-start;
+
+
+}
+.footer li{
+    padding: 10px 0;
+}
+
+.newsletter p{
+    color: white;
+    margin-top: 15px;
+}
+
+.bloc3 img{
+    padding: 10px;
+}
+
+.bloc3 h2{
+    text-align: center;
+}
+
+.reseau{
+    justify-content: space-around;
+}
+.newsletter ::placeholder{
+    padding: 5px;
+}
