@@ -1,0 +1,66 @@
+main{
+    background: #f5f5f7;
+    padding: 0 40px;
+}
+
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+h2 {
+    color: black;
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.mannequin2 {
+    height: 502px;
+    padding: 20px;
+}
+
+.favoris {
+    position: relative;
+}
+
+.heart2 {
+    position: absolute;
+    bottom: 35px;
+    right: 45px;
+}
+
+.detail {
+    align-items: flex-start;
+    padding-left: 20px;
+
+}
+
+.promo{
+    width : min(1440px, 100%);
+    margin-bottom: 40px;
+}
+
+.cate{
+    background: white;
+    margin-bottom: 40px;
+}
+
