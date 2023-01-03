@@ -1,0 +1,18 @@
+<!-- <ul>
+  <li *ngFor="let item of products" [item]="item"></li>
+</ul> -->
+
+<main>
+  <section class="featured-products">
+    <div class="container">
+      <h2>Les nouvautés</h2>
+      <div class="row row-products-categories">
+        <app-card
+          class="col-4 bg-white"
+          *ngFor="let item of newProducts"
+          [item]="item"
+        ></app-card>
+      </div>
+    </div>
+  </section>
+</main>

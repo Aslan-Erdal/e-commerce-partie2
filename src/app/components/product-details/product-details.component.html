@@ -1,1 +1,49 @@
-<p>product-details works!</p>
+<main>
+  <section *ngIf="product" class="produit flex">
+    <div class="flex column mini" *ngFor="let img of product.image">
+      <img
+        *ngIf="img !== product.image[0]"
+        src="{{ img }}"
+        alt="miniatute_pantalon"
+      />
+    </div>
+
+    <div class="favoris">
+      <img
+        class="mannequin"
+        src="{{ product.image[0] }}"
+        alt="modèle_homme_pantalon"
+      />
+      <img
+        class="heart"
+        src="public/images/img/🦆 icon _heart_.png"
+        alt="coeur_favoris"
+      />
+    </div>
+
+    <div class="column flex recap">
+      <div class="flex column detail">
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.price }}€</p>
+
+        <label for="taille-selection">TAILLE:</label>
+        <select name="taille" id="taille-selection">
+          <option value="">--Choisir une taille--</option>
+          <option *ngFor="let taille of product.taille" value="{{ taille }}">
+            {{ taille }}
+          </option>
+        </select>
+
+        <button>
+          <a href="#">AJOUTER AU PANIER</a>
+        </button>
+      </div>
+
+      <div class="flex column livraison">
+        <p>Livraison gratuite.</p>
+        <p>Retours gratuits.</p>
+        <p>Les conditions générales d'application.</p>
+      </div>
+    </div>
+  </section>
+</main>
