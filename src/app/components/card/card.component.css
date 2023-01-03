@@ -1,0 +1,22 @@
+a {
+  position: relative;
+}
+
+img {
+  width: 100%;
+}
+
+h3,
+p {
+  text-align: center;
+}
+h3 {
+  padding-top: 1rem;
+}
+
+.icon-favoris {
+  width: 35px !important;
+  position: absolute;
+  top: -25px;
+  left: 82%;
+}

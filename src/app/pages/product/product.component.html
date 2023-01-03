@@ -1,59 +1,73 @@
 <main>
+  <section>
+    <a routerLink="/"
+      ><img
+        class="promo"
+        src="assets/images/img/promotion.png"
+        alt="bannière_promotion"
+    /></a>
+  </section>
 
-    <section>
-       <a routerLink="/"><img class="promo" src="assets/images/img/promotion.png" alt="bannière_promotion"></a> 
-    </section>
+  <section class="produit flex">
+    <div class="flex column mini">
+      <img
+        src="assets/images/img/pantalon_bleu_ciel2.png"
+        alt="miniatute_pantalon"
+      />
+      <img
+        src="assets/images/img/pantalon_bleu_ciel2.png"
+        alt="miniatute_pantalon"
+      />
+      <img
+        src="assets/images/img/pantalon_bleu_ciel2.png"
+        alt="miniatute_pantalon"
+      />
+      <img
+        src="assets/images/img/pantalon_bleu_ciel2.png"
+        alt="miniatute_pantalon"
+      />
+    </div>
 
-    <section class="produit flex">
+    <div class="favoris">
+      <img
+        class="mannequin"
+        src="assets/images/img/pantalon_bleu_ciel.jpg"
+        alt="modèle_homme_pantalon"
+      />
+      <img
+        class="heart"
+        src="assets/images/img/🦆 icon _heart_.png"
+        alt="coeur_favoris"
+      />
+    </div>
 
-        <div class="flex column mini">
-            <img src="assets/images/img/pantalon_bleu_ciel2.png" alt="miniatute_pantalon">
-            <img src="assets/images/img/pantalon_bleu_ciel2.png" alt="miniatute_pantalon">
-            <img src="assets/images/img/pantalon_bleu_ciel2.png" alt="miniatute_pantalon">
-            <img src="assets/images/img/pantalon_bleu_ciel2.png" alt="miniatute_pantalon">
-        </div>
+    <div class="column flex recap">
+      <div class="flex column detail">
+        <h2>MODELE JEAN HOMME 1</h2>
+        <p>39,99€</p>
 
-        <div class="favoris">
-            <img class="mannequin" src="assets/images/img/pantalon_bleu_ciel.jpg" alt="modèle_homme_pantalon">
-            <img class="heart" src="assets/images/img/🦆 icon _heart_.png" alt="coeur_favoris">
-        </div>
+        <label for="taille-selection">TAILLE:</label>
+        <select name="taille" id="taille-selection">
+          <option value="">--Choisir une taille--</option>
+          <option value="36">36</option>
+          <option value="38">38</option>
+          <option value="40">40</option>
+          <option value="42">42</option>
+          <option value="44">44</option>
+          <option value="46">46</option>
+        </select>
 
+        <button>
+          <a routerLink="cart">AJOUTER AU PANIER</a>
+        </button>
+      </div>
 
-        <div class="column flex recap">
-            <div class="flex column detail">
-                <h2>MODELE JEAN HOMME 1</h2>
-                <p>39,99€</p>
-
-                <label for="taille-selection">TAILLE:</label>
-                <select name="taille" id="taille-selection">
-                    <option value="">--Choisir une taille--</option>
-                    <option value="36">36</option>
-                    <option value="38">38</option>
-                    <option value="40">40</option>
-                    <option value="42">42</option>
-                    <option value="44">44</option>
-                    <option value="46">46</option>
-                </select>
-
-                <button>
-                    <a routerLink="cart">AJOUTER AU PANIER</a>
-                </button>
-
-            </div>
-
-            <div class="flex column livraison">
-
-                <p>Livraison gratuite.
-                </p>
-                <p>Retours gratuits.
-                </p>
-                <p>Les conditions générales d'application.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
+      <div class="flex column livraison">
+        <p>Livraison gratuite.</p>
+        <p>Retours gratuits.</p>
+        <p>Les conditions générales d'application.</p>
+      </div>
+    </div>
+  </section>
 </main>
+>>>>>>> 0d60670d4a7509339880692174cbb06a3b311554

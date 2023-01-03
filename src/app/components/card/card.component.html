@@ -1,1 +1,6 @@
-<p>card works!</p>
+<a routerLink="products/{{ item.id }}">
+  <img src="{{ item.image[0] }}" alt="" />
+  <img class="icon-favoris" src="./assets/icons/favoris-noir.png" alt="" />
+</a>
+<h3>{{ item.name }}</h3>
+<p>{{ item.price }}€</p>

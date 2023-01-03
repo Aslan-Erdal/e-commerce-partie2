@@ -1,0 +1,42 @@
+main {
+  margin: 80px 0 80px;
+  gap: 40px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+.container {
+  max-width: 1200px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.row-products-categories {
+  justify-content: center;
+  gap: 40px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.col-4 {
+  flex-basis: 27%;
+  min-width: 200px;
+  padding: 15px;
+  display: block;
+}
+.bg-white {
+  background-color: white;
+}
+.featured-products h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: bold;
+  background: white;
+  padding: 1.5rem 0;
+  font-size: 1.5rem;
+}
