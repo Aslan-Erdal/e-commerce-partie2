@@ -1,0 +1,41 @@
+p,
+label {
+    font-size: clamp(14px, 5vh, 18px);
+    font-weight: 300;
+}
+
+/* TOTAL SECTION CSS */
+
+.total-box-crt h3 {
+  font-size: clamp(28px, 5vh, 32px);
+  font-weight: 400;
+}
+
+.payments-crt {
+  width: min(322px, 100%);
+  margin-top: 4px;
+}
+
+.payments-crt img {
+  margin-left: 10px;
+}
+
+form select {
+  width: min(460px, 100%);
+  background-color: #ffffff;
+  border: .5px solid black;
+  padding: 13px 0 13px 13px;
+  margin-top: 10px;
+  font-size: clamp(18px, 5vh, 14px);
+}
+
+form input {
+  width: min(460px, 100%);
+  background-color: #231F20;
+  color: white;
+  padding: 15px 0;
+  border: none;
+  margin-top: 25px;
+  font-size: clamp(22px, 5vh, 14px);
+  font-weight: 300;
+}
