@@ -20,7 +20,12 @@ import { SectionCategoriesComponent } from './components/section-categories/sect
 import { CardComponent } from './components/card/card.component';
 import { SubCategeriesComponent } from './components/sub-categeries/sub-categeries.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { PanierCardComponent } from './components/panier-card/panier-card.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { TotalPanierComponent } from './components/total-panier/total-panier.component';
+import { DeliveryAddressComponent } from './components/delivery-address/delivery-address.component';
+import { ArticlePaymentComponent } from './components/article-payment/article-payment.component';
+import { PaymentCreditCardComponent } from './components/payment-credit-card/payment-credit-card.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,12 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     CardComponent,
     SubCategeriesComponent,
     ProductDetailsComponent,
-    NotFoundComponent
+    PanierCardComponent,
+    NotFoundComponent,
+    TotalPanierComponent,
+    DeliveryAddressComponent,
+    ArticlePaymentComponent,
+    PaymentCreditCardComponent
   ],
   imports: [
     BrowserModule,
