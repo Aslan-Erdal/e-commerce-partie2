@@ -110,6 +110,6 @@ label {
 }
 
 .promo{
-    width : min(1440px, 100%);
+    width : min(100vw, 100%);
     margin-bottom: 40px;
 }

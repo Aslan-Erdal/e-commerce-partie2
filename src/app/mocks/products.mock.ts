@@ -1,6 +1,6 @@
 type ProductJender = 'homme' | 'femme' | 'enfant';
-type ProductCategory = 'pantalon' | 'chaussures' | 't-shirt' | 'pull';
-type Color = 'rouge' | 'blanc' | 'noire' | 'bleu' | 'grise';
+type ProductCategory = 'pantalon' | 'chaussures' | 't-shirt' | 'pull' | 'manteau' | 'survêtement' | 'jogging';
+type Color = 'rouge' | 'blanc' | 'noire' | 'bleu' | 'grise' | 'beige';
 type Size = 'L' | 'S' | 'M' | '36' | '40' | '41' | '38' | 'XL';
 
 export interface Product {
@@ -148,6 +148,66 @@ export const PRODUCTS: Product[] = [
     sousCategorie: 'pull',
     couleur: ['blanc'],
     taille: ['M', 'S'],
+    isAvailable: true,
+    promos: false,
+  },
+
+  {
+    id: 8,
+    name: 'Doudoune Fille ',
+    price: 50,
+    image: [
+      'assets/images/doudoune_fille1.jpg',
+      'assets/images/doudoune_fille2.jpg',
+      'assets/images/doudoune_fille3.jpg',
+      'assets/images/doudoune_fille4.jpg',
+      'assets/images/doudoune_fille5.jpg',
+    ],
+    description: 'lorem ipsom',
+    categorie: 'enfant',
+    sousCategorie: 'manteau',
+    couleur: ['noire'],
+    taille: ['S'],
+    isAvailable: true,
+    promos: false,
+  },
+
+  {
+    id: 9,
+    name: 'Survêtement Garçon ',
+    price: 50,
+    image: [
+      'assets/images/garcon_jogging1.jpg',
+      'assets/images/garcon_jogging2.jpg',
+      'assets/images/garcon_jogging3.jpg',
+      'assets/images/garcon_jogging4.jpg',
+      'assets/images/garcon_jogging5.jpg',
+    ],
+    description: 'lorem ipsom',
+    categorie: 'enfant',
+    sousCategorie: 'survêtement',
+    couleur: ['noire'],
+    taille: ['S'],
+    isAvailable: true,
+    promos: false,
+  },
+
+  {
+    id: 10,
+    name: 'Jogging Garçon ',
+    price: 50,
+    image: [
+      'assets/images/garcon_nike1.jpg',
+      'assets/images/garcon_nike2.jpg',
+      'assets/images/garcon_nike3.jpg',
+      'assets/images/garcon_nike4.jpg',
+      'assets/images/garcon_nike5.jpg',
+    ],
+    description: 'lorem ipsom',
+    categorie: 'enfant',
+    sousCategorie: 'jogging',
+    couleur: ['noire'],
+    taille: ['S'],
     isAvailable: true,
     promos: false,
   },

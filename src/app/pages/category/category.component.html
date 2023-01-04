@@ -1,9 +1,23 @@
-<section>
-    <a routerLink="/"><img class="promo" src="assets/images/img/promotion.png" alt="bannière_promotion"></a> 
- </section>
+    
+    
+    <section>
+        <a routerLink="/"><img class="promo" src="assets/images/img/promotion.png" alt="bannière_promotion"></a> 
+     </section>
 
 
 <main>
+
+    <ul>
+        <li *ngFor="let item of products">
+
+            <article>
+                <h3> {{item.name}} </h3>
+                <p> {{item.price}} </p>
+                <img src=" {{item.image [0]}} " alt="">
+                <a routerLink="/products/ {{item.id}}">Découvrez nos produits</a>
+            </article>
+        </li>
+    </ul>
 
 
     <h1>PANTALON HOMME</h1>

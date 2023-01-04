@@ -3,18 +3,17 @@ import { Product } from 'src/app/mocks/products.mock';
 import { ProductsService } from 'src/app/service/products/products.service';
 
 @Component({
-  selector: 'app-category',
-  templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css']
+  selector: 'app-sous-category',
+  templateUrl: './sous-category.component.html',
+  styleUrls: ['./sous-category.component.css']
 })
-export class CategoryComponent {
-  products: Product[] = [];
+export class SousCategoryComponent {
+  products : Product [] = [];
 
-  constructor (private ProductService : ProductsService){}
+  constructor (private ProductService : ProductsService) {}
 
   ngOnInit(){
     this.products = this.ProductService.getProducts();
-  
   }
 
 }

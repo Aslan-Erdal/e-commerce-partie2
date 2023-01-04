@@ -13,10 +13,13 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'categories', component: CategoriesComponent },
   { path: 'category', component: CategoryComponent },
+  { path: 'category/:categorie', component: CategoryComponent },
+  { path: 'category/:categorie:/sousCategorie', component: CategoryComponent },
+  
   { path: 'products', component: ProductsComponent },
-
-  { path: 'products/:id', component: ProductComponent },
   { path: 'product', component: ProductComponent },
+  { path: 'product/:id', component: ProductComponent },
+  
 
   { path: 'cart', component: CartComponent },
   { path: 'payment', component: PaymentComponent },
