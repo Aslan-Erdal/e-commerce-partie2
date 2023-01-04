@@ -26,6 +26,8 @@ import { TotalPanierComponent } from './components/total-panier/total-panier.com
 import { DeliveryAddressComponent } from './components/delivery-address/delivery-address.component';
 import { ArticlePaymentComponent } from './components/article-payment/article-payment.component';
 import { PaymentCreditCardComponent } from './components/payment-credit-card/payment-credit-card.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
 
 @NgModule({
   declarations: [
@@ -53,11 +55,13 @@ import { PaymentCreditCardComponent } from './components/payment-credit-card/pay
     TotalPanierComponent,
     DeliveryAddressComponent,
     ArticlePaymentComponent,
-    PaymentCreditCardComponent
+    PaymentCreditCardComponent,
+    PaymentSuccessComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
