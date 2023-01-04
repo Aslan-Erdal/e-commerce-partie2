@@ -1,27 +1,68 @@
 <!-- PAYMENT ADDRESS START HERE  -->
   <h2>Addresse de livraison</h2>
   <hr>
-  <h3>Ajouter une addresse :</h3>
-  <form class="flex-crt">
-      <div class="form-box-payment-pyt flex-crt">
-          <label for="prenom">Prénom : </label>
-          <input type="text" name="prenom" id="prenom">
-      </div>
-      <div class="form-box-payment-pyt flex-crt">
-          <label for="nom">Nom de famille : </label>
-          <input type="text" name="nom" id="nom">
-      </div>
-      <div class="form-box-payment-pyt flex-crt">
-          <label for="portable">Portable : </label>
-          <input type="text" name="portable" id="portable">
-      </div>
-      <div class="form-box-payment-pyt flex-crt">
-          <label for="addr-livraison">Addresse de livraison : </label>
-          <input type="text" name="addr-livraison" id="addr-livraison">
-      </div>
-      <div class="form-box-payment-pyt flex-crt">
-          <label for="pays">Pays : </label>
-          <input type="text" name="pays" id="pays">
-      </div>
-      <input type="submit" value="Enregistrer">
-  </form>
+  <div>
+    <h3>Ajouter une addresse :</h3>
+    <form [formGroup]="paymentForm" class="flex-crt">
+        <div
+        class="form-box-payment-pyt flex-crt">
+            <label for="prenom">Prénom : </label>
+            <input type="text" id="prenom"
+            formControlName="delivery_prenom">
+
+              <div class="alert-danger" *ngIf="paymentForm.controls['delivery_prenom'].errors?.['required'] && isValidInput('delivery_prenom')">
+                Ce champs est obligatoire.
+              </div>
+              <div class="alert-danger" *ngIf="paymentForm.controls['delivery_prenom'].errors?.['minlength']">
+                Le nom doit avoir plus de 3 caractères.
+              </div>
+
+        </div>
+        <div class="form-box-payment-pyt flex-crt">
+            <label for="nom">Nom de famille : </label>
+            <input type="text" id="nom" formControlName="delivery_nom">
+            <div *ngIf="isValidInput('delivery_nom')" class="alert-danger">
+              <div> Ce champs est obligatoire. </div>
+            </div>
+        </div>
+        <div class="form-box-payment-pyt flex-crt">
+            <label for="email">Email : </label>
+            <input type="text" id="email" formControlName="delivery_email">
+
+              <div class="alert-danger" *ngIf="paymentForm.controls['delivery_email'].errors?.['required'] && isValidInput('delivery_email')"> Ce champs est obligatoire. </div>
+
+              <div class="alert-danger" *ngIf="paymentForm.controls['delivery_email'].errors?.['email']"> Email non valide.
+              </div>
+
+        </div>
+        <div class="form-box-payment-pyt flex-crt">
+            <label for="portable">Portable : </label>
+            <input type="text" id="portable" formControlName="delivery_portable">
+
+              <div class="alert-danger" *ngIf=" paymentForm.controls['delivery_portable'].errors?.['required'] && isValidInput('delivery_portable')"> Ce champs est obligatoire. </div>
+              <div class="alert-danger" class="alert-danger" *ngIf="paymentForm.controls['delivery_portable'].errors?.['minlength']">
+                Le numéro de téléphone est non valide.
+              </div>
+        </div>
+        <div class="form-box-payment-pyt flex-crt">
+            <label for="delivery_address">Addresse de livraison : </label>
+            <input type="text" id="delivery_address" formControlName="delivery_address">
+            <div *ngIf="isValidInput('delivery_address')" class="alert-danger">
+              <div> Ce champs est obligatoire. </div>
+            </div>
+        </div>
+        <div class="form-box-payment-pyt flex-crt">
+            <label for="pays">Pays : </label>
+            <input type="text" id="pays" formControlName="delivery_pays">
+            <div *ngIf="isValidInput('delivery_pays')" class="alert-danger">
+              <div> Ce champs est obligatoire. </div>
+            </div>
+        </div>
+        <input type="submit"
+        [disabled]="paymentForm.invalid"
+        [class.isDisabled]="paymentForm.invalid"
+        (click)="getDeliveryAddress()" value="Enregistrer">
+    </form>
+  </div>
+
+  
