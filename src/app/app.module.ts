@@ -26,6 +26,10 @@ import { TotalPanierComponent } from './components/total-panier/total-panier.com
 import { DeliveryAddressComponent } from './components/delivery-address/delivery-address.component';
 import { ArticlePaymentComponent } from './components/article-payment/article-payment.component';
 import { PaymentCreditCardComponent } from './components/payment-credit-card/payment-credit-card.component';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 44af02563e15e40a1a61175260b26dad02bced76
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,15 +50,27 @@ import { PaymentCreditCardComponent } from './components/payment-credit-card/pay
     CardComponent,
     SubCategeriesComponent,
     ProductDetailsComponent,
+<<<<<<< HEAD
 
     ProductsListComponent,
 
+=======
+    ProductsListComponent,
+>>>>>>> 44af02563e15e40a1a61175260b26dad02bced76
     PanierCardComponent,
     NotFoundComponent,
     TotalPanierComponent,
     DeliveryAddressComponent,
     ArticlePaymentComponent,
+<<<<<<< HEAD
     PaymentCreditCardComponent,
+=======
+    PaymentCreditCardComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+>>>>>>> 44af02563e15e40a1a61175260b26dad02bced76
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

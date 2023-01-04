@@ -1,0 +1,37 @@
+/* CSS BOX ARTICLE */
+
+h3 {
+  margin-top: 50px;
+  font-weight: 400;
+}
+
+h3 span {
+  margin-left: 100px;
+}
+
+.article-payment-pyt {
+  margin: 38px 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.article-textbox-pyt {
+  width: min(250px, 100%);
+  height: 200px;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.article-textbox-pyt p span {
+  margin-left: 20px;
+}
+
+.card-infos-pyt {
+  height: 430px;
+  background-color: #ffffff;
+}
+.box-article-payment-pyt h2,
+.article-payment-pyt h3,
+.payment-box-pyt h2 {
+  font-weight: 400;
+}
