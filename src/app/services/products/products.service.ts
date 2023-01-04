@@ -21,4 +21,15 @@ export class ProductsService {
   getProductJender(categorie: string | null): Product[] | undefined {
     return PRODUCTS.filter((product) => product.categorie === categorie);
   }
+
+  getProductJenderCategorie(
+    categorie: string | null,
+    souscategorie: string | null
+  ): Product[] | undefined {
+    return PRODUCTS.filter(
+      (product) =>
+        product.categorie === categorie &&
+        product.sousCategorie === souscategorie
+    );
+  }
 }

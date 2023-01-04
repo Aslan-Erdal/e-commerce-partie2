@@ -16,18 +16,25 @@ export class CategoriesComponent {
     private router: Router
   ) {}
   ngOnInit() {
-    this.getProduct();
+    //pour ecouter se qui ce passe dans l'url pour faire charger les données
+    //il faut faire les observateurs pour bien comprendre?!!!!!!
+    this.activatedRout.params.subscribe((routeParams) => {
+      this.getProduct();
+    });
   }
   getProduct(): void {
-    const categories = this.router.url.substring(1);
-    console.log(categories);
-
-    const productsFound = this.productsService.getProductJender(categories);
-    console.log(productsFound);
+    const productsFound = this.productsService.getProductJender(
+      this.getCategorie()
+    );
     if (productsFound) {
       this.Products = productsFound;
     } else {
       this.router.navigate(['not-found']);
     }
+  }
+  getCategorie(): string | null {
+    const categories = this.activatedRout.snapshot.paramMap.get('categorie');
+    console.log(categories);
+    return categories;
   }
 }
