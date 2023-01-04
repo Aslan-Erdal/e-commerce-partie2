@@ -18,4 +18,7 @@ export class ProductsService {
     let newProduct = [...PRODUCTS];
     return newProduct.splice(1);
   }
+  getProductJender(categorie: string | null): Product[] | undefined {
+    return PRODUCTS.filter((product) => product.categorie === categorie);
+  }
 }
