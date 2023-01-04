@@ -15,6 +15,7 @@ export class ProductsService {
     return PRODUCTS.find((product) => product.id === id);
   }
   getnewProducts() {
-    return PRODUCTS.splice(1);
+    let newProduct = [...PRODUCTS];
+    return newProduct.splice(1);
   }
 }

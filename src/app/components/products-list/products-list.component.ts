@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from 'src/app/mocks/products.mock';
-import { ProductsService } from 'src/app/service/products/products.service';
+import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
   selector: 'app-products-list',
@@ -15,5 +15,6 @@ export class ProductsListComponent {
     this.products = this.serviceProducts.getProducts();
 
     this.newProducts = this.serviceProducts.getnewProducts();
+    console.log(this.newProducts);
   }
 }
