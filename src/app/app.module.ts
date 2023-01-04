@@ -56,13 +56,8 @@ import { PaymentSuccessComponent } from './pages/payment-success/payment-success
     DeliveryAddressComponent,
     ArticlePaymentComponent,
     PaymentCreditCardComponent,
-    PaymentSuccessComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

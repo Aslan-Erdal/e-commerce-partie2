@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Product } from 'src/app/mocks/products.mock';
 import { ProductsService } from 'src/app/services/products/products.service';
 
@@ -8,13 +8,12 @@ import { ProductsService } from 'src/app/services/products/products.service';
   styleUrls: ['./products-list.component.css'],
 })
 export class ProductsListComponent {
-  products: Product[] = [];
-  newProducts: Product[] = [];
-  constructor(private serviceProducts: ProductsService) {}
-  ngOnInit() {
-    this.products = this.serviceProducts.getProducts();
+  @Input() Products!: Product[];
 
-    this.newProducts = this.serviceProducts.getnewProducts();
-    console.log(this.newProducts);
-  }
+  // products: Product[] = [];
+  // newProducts: Product[] = [];
+  // constructor(private serviceProducts: ProductsService) {}
+  // ngOnInit() {
+  //   this.newProducts = this.serviceProducts.getnewProducts();
+  // }
 }
