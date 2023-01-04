@@ -1,12 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "../node_modules/normalize.css/normalize.css";
-<<<<<<< HEAD
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
 
 :root {
   --color-green: #006637;
@@ -18,15 +12,9 @@
 }
 body {
   background: var(--color-background);
-=======
-
-body {
-  background-color: #f5f5f7;
 }
-
 
 .flex-crt {
   display: flex;
   justify-content: center;
->>>>>>> 0d60670d4a7509339880692174cbb06a3b311554
 }

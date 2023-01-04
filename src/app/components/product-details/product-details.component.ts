@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/mocks/products.mock';
-import { ProductsService } from 'src/app/service/products/products.service';
+import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
   selector: 'app-product-details',
@@ -11,7 +11,7 @@ import { ProductsService } from 'src/app/service/products/products.service';
 export class ProductDetailsComponent {
   product?: Product;
   constructor(
-    private productService: ProductsService,
+    private productsService: ProductsService,
     private activatedRout: ActivatedRoute,
     private router: Router
   ) {}
@@ -20,7 +20,8 @@ export class ProductDetailsComponent {
   }
   getProduct(): void {
     const id = Number(this.activatedRout.snapshot.paramMap.get('id'));
-    const productFound = this.productService.getProductById(id);
+
+    const productFound = this.productsService.getProductById(id);
     if (productFound) {
       this.product = productFound;
     } else {
