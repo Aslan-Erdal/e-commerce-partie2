@@ -16,11 +16,24 @@ export class ProductsService {
   }
   getnewProducts() {
     let newProduct = [...PRODUCTS];
-    return newProduct.splice(1);
+    return newProduct.slice(-6);
   }
   getProductJender(categorie: string | null): Product[] | undefined {
     return PRODUCTS.filter((product) => product.categorie === categorie);
   }
+  getPromos(): Product[] | undefined {
+    return PRODUCTS.filter((product) => product.promos === true);
+  }
+
+  // getPrixPromos() {
+  //   const productsPromos = this.getPromos();
+  //   if (productsPromos) {
+  //     productsPromos.forEach((product) => {
+  //       product.price = product.price / 2;
+  //     });
+  //   }
+  //   return productsPromos;
+  // }
 
   getProductJenderCategorie(
     categorie: string | null,

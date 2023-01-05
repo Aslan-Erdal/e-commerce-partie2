@@ -73,7 +73,7 @@ export const PRODUCTS: Product[] = [
     couleur: ['noire'],
     taille: ['38'],
     isAvailable: true,
-    promos: false,
+    promos: true,
   },
   {
     id: 4,
@@ -92,12 +92,12 @@ export const PRODUCTS: Product[] = [
     couleur: ['bleu'],
     taille: ['M'],
     isAvailable: true,
-    promos: false,
+    promos: true,
   },
   {
     id: 5,
     name: 'chaussures ',
-    price: 50,
+    price: 25,
     image: [
       'assets/images/product-5.jpg',
       'assets/images/product-5.jpg',
@@ -111,7 +111,7 @@ export const PRODUCTS: Product[] = [
     couleur: ['grise'],
     taille: ['41'],
     isAvailable: true,
-    promos: false,
+    promos: true,
   },
   {
     id: 6,
