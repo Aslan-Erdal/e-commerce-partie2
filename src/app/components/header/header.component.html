@@ -14,7 +14,7 @@
                 name=""
                 id="input-search"
             >
-            <button>   
+            <button>
                 <img
                 class="search-white"
                 src="assets/icons/searchnormal.png"
@@ -27,7 +27,10 @@
 
         <div class="flex icon">
            <a routerLink="/"> <img class="" src="assets/icons/user.png" alt="icon_compte"> </a>
-            <a routerLink="/cart"> <img class="" src="assets/icons/panier.png" alt="icon_panier"></a>
+            <a class="cart-img-container" routerLink="/cart">
+              <img class="cart-img" src="assets/icons/panier.png" alt="icon_panier">
+              <span *ngIf="this.cartService.productQuantity !== 0"  class="cart-quantity">{{this.cartService.productQuantity}}</span>
+            </a>
         </div>
 
     </div>

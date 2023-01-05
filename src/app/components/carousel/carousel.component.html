@@ -1,1 +1,26 @@
-<p>carousel works!</p>
+<div class="container">
+  <h2>Les promos</h2>
+</div>
+<section class="product">
+  <button class="pre-btn">
+    <img src="./assets/images/arrow.png" alt="" />
+  </button>
+  <button class="nxt-btn">
+    <img src="./assets/images/arrow.png" alt="" />
+  </button>
+  <div class="product-container">
+    <div class="product-card" *ngFor="let item of productsPromos">
+      <div class="product-image">
+        <span class="discount-tag">-50% </span>
+        <img src="{{ item.image[0] }}" class="product-thumb" alt="" />
+        <button class="card-btn" (click)="addToCart(item)">ajouter au panier</button>
+      </div>
+      <div class="product-info">
+        <h2 class="product-brand">{{ item.categorie }}</h2>
+        <p class="product-short-description">{{ item.name }}</p>
+        <span class="price">{{ item.price / 2 }}€</span
+        ><span class="actual-price">{{ item.price }}€</span>
+      </div>
+    </div>
+  </div>
+</section>

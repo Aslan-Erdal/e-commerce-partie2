@@ -14,7 +14,6 @@ label {
 }
 
 .box-article-crt {
-  border: 1px solid black;
   flex-direction: column;
   width: min(675px, 100%);
 }
@@ -47,7 +46,6 @@ label {
   justify-content: space-between;
   padding: 28px;
 
-  border: 1px solid black;
 }
 
 .total-box-crt h2 {

@@ -3,7 +3,7 @@
 
 h1, h3 {
   background-color: #ffffff;
-  padding: 21px 0 21px 39px;
+  /* padding: 21px 0 21px 39px; */
 }
 
 h1 {
@@ -12,22 +12,40 @@ h1 {
 
 h3 {
   font-size: 34px;
-  padding: 24px 0 24px 39px;
+  /* padding: 24px 0 24px 39px; */
+}
+
+
+.article-text-crt p, .article-text-crt h2 {
+  margin: 0;
 }
 
 .cart-article-crt {
     width: min(675px, 100%);
-    min-height: 510px;
+    min-height: 310px;
     gap: 40px;
     align-items: center;
     align-self: center;
     background-color: white;
+    border-bottom: 1px solid #c3c3c3;
+    position: relative;
+}
 
+.last-item-of-cart {
+  border: none;
+}
+
+.remove-from-cart {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 30px;
+  cursor: pointer;
 }
 
 .cart-article-crt img {
-    max-width: 290px;
-    height: 433px;
+    max-width: 190px;
+    /* height: 233px; */
     display: block;
     /* make my image block element */
 }
@@ -41,7 +59,7 @@ h3 {
 
 .article-text-crt {
     width: min(268px, 100%);
-    height: 340px;
+    height: 240px;
     flex-direction: column;
     justify-content: space-around;
 }
@@ -62,3 +80,40 @@ h3 {
 .article-text-crt .form-crt label {
     align-self: center;
 }
+
+.cart-empty {
+  text-align: center;
+}
+
+/* HEART FAVORITE STYLE & BUTTON */
+
+.favorite-button-crt {
+  border: 1px solid rgb(205, 202, 202) !important;
+  background: none;
+  cursor: pointer;
+  padding: 7px;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: all .3s;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+}
+
+ .favorite-button-crt:hover {
+  background-color: #c3c3c3;
+ }
+
+.fill-heart-crt {
+  color: tomato;
+  font-size: 24px;
+  font-weight: bold;
+ }
+
+ .empty-heart-crt {
+  width:18px;
+  height:18px;
+  font-size: 24px;
+  font-weight: bold;
+ }

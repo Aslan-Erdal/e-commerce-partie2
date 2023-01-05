@@ -1,7 +1,7 @@
 <a routerLink="/products/{{ item.id }}">
   <!-- <a routerLink="/products/3"> -->
   <img src="{{ item.image[0] }}" alt="" />
-  <img class="icon-favoris" src="./assets/icons/favoris-noir.png" alt="" />
+  <img (click)="addToFavorite($event, item); false" class="icon-favoris" [src]="isInFavorite(item) ? './assets/icons/favoris_red.png' : './assets/icons/favoris-noir.png'" alt="" />
 </a>
 <h3>{{ item.name }}</h3>
 <p>{{ item.price }}€</p>

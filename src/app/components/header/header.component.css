@@ -38,3 +38,24 @@ button {
     right: 190px;
     border: none;
 }
+
+
+.cart-img, .cart-img-container {
+position: relative;
+}
+.cart-quantity {
+  position: absolute;
+  background-color: tomato;
+  padding: 3px 5px 2px 5px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+  /* font-size: 18px; */
+  top: -7px;
+  right: -7px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}

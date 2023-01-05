@@ -21,11 +21,7 @@
 
     <div>
       <img src="{{ product.image[0] }}" alt="modèle_homme_pantalon" />
-      <img
-        class="heart"
-        src="assets/images/img/🦆 icon _heart_.png"
-        alt="coeur_favoris"
-      />
+      <img (click)="addToFavorite($event, product); false" class="heart" [src]="isInFavorite(product) ? './assets/icons/favoris_red.png' : 'assets/images/img/🦆 icon _heart_.png'" alt="coeur_favoris"/>
     </div>
 
     <div>
@@ -41,8 +37,8 @@
           </option>
         </select>
 
-        <button>
-          <a href="#">AJOUTER AU PANIER</a>
+        <button (click)="addToCart()">
+          <a>AJOUTER AU PANIER</a>
         </button>
       </div>
 

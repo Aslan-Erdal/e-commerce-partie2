@@ -36,10 +36,9 @@ export class PaymentCreditCardComponent implements OnInit{
       this.errorPayMessage = "Veuillez renseigner tous les champs!";
     } else {
       this.errorPayMessage = "";
+      localStorage.clear();
       this.router.navigate(['/payment-success']);
     }
-    console.log(this.cardForm.value);
-    console.log("CARDFORM : ", this.cardForm);
   }
 
 

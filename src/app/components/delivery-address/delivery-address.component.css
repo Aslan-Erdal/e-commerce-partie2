@@ -35,6 +35,7 @@ form input[type="submit"] {
   color: #ffffff;
   border: none;
   padding: 12px 0;
+  cursor: pointer;
 }
 
 /* form input[type="submit"]:hover {

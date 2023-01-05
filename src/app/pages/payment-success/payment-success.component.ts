@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as shortUUID from 'short-uuid';
 
 @Component({
   selector: 'app-payment-success',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./payment-success.component.css']
 })
 export class PaymentSuccessComponent {
+
+  constructor() { }
+
+public myId = shortUUID.generate();
+
+ngOnInit(): void {
+  console.log(this.myId);
+}
 
 }
