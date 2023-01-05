@@ -25,7 +25,7 @@ form input[type="submit"] {
 .form-card-infos-pyt input[type="submit"] {
   width: min(434px, 100%);
   padding: 10px;
-  border: 0.5px solid black;
+  border: none;
   background-color: #231f20;
   color: #ffffff;
 }
@@ -40,4 +40,13 @@ form input[type="submit"] {
 
 .form-card-infos-pyt .month-year-pyt {
   justify-content: space-between;
+}
+
+
+.alert-danger {
+  color: tomato;
+}
+
+.isDisabled {
+ background-color: #878485 !important;
 }
