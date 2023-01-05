@@ -1,29 +1,60 @@
 <!-- PAIEMENT VISA START HERE -->
   <h2>Paiement</h2>
   <div class="card-infos-pyt">
-      <form class="form-card-infos-pyt flex-crt">
+      <form [formGroup]="cardForm" class="form-card-infos-pyt flex-crt" *ngIf="this.getItemFromStorage() !== null else showCardContent">
           <div class="form-box-payment-pyt">
-              <label for="pays">Numéro de la carte : </label>
-              <input class="input-cart" type="text" name="pays" id="pays">
+              <label for="num_card">Numéro de la carte : </label>
+              <input class="input-cart" type="text" formControlName="num_card" id="num_card">
+              <div *ngIf="isValidInput('num_card')">
+                <div class="alert-danger" *ngIf="num_card?.['required']">
+                  Ce champs est obligatoire.
+                </div>
+              </div>
           </div>
           <div class="month-year-pyt flex-crt">
-              <select id="mois" name="mois" value="mois">
-                  <option value="mois">Mois</option>
-                  <option value="01">01</option>
-                  <option value="02">02</option>
-                  <option value="03">03</option>
+
+              <select id="mois" formControlName="month">
+                  <option *ngFor="let item of months" [ngValue]="item">
+                    {{item}}
+                  </option>
               </select>
-              <select id="year" name="year">
-                  <option value="year">Année</option>
-                  <option value="2000">2000</option>
-                  <option value="2001">2001</option>
-                  <option value="2003">2003</option>
+
+              <select id="year" formControlName="year">
+                  <option *ngFor="let item of years" [ngValue]="item">
+                    {{ item}}
+                  </option>
               </select>
           </div>
+          <div *ngIf="isValidInput('year') && isValidInput('month')" class="alert-danger">
+            <div class="alert-danger">
+              Ce champs est obligatoire.
+            </div>
+          </div>
+
           <div class="form-box-payment-pyt">
               <label for="cvv">CVV : </label>
-              <input type="text" name="cvv" id="cvv">
+              <input type="text" formControlName="cvv" id="cvv">
+              <div *ngIf="isValidInput('cvv')" class="alert-danger">
+                <div class="alert-danger" *ngIf="cvv?.['required']">
+                  Ce champs est obligatoire.
+                </div>
+                <div class="alert-danger" *ngIf="cvv?.['minlength'] || cvv?.['maxlength']">
+                  Le prenom doit avoir 3 caractères.
+                </div>
+              </div>
           </div>
-          <input type="submit" value="Enregistrer">
+          <input type="submit"
+          [disabled]="cardForm.invalid"
+          [class.isDisabled]="cardForm.invalid"
+          (click)="onPay()"
+          value="Enregistrer">
+          <div *ngIf="errorPayMessage" class="alert-danger">
+            {{ errorPayMessage }}
+          </div>
       </form>
   </div>
+
+
+  <ng-template #showCardContent>
+    <p>Veuillez renseigner vos informations, avant de procéder au paiement!</p>
+  </ng-template>

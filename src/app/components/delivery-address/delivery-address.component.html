@@ -2,67 +2,99 @@
   <h2>Addresse de livraison</h2>
   <hr>
   <div>
+    <form [formGroup]="paymentForm" class="flex-crt"  *ngIf="this.getItemFromStorage() == null else showAddressContent">
     <h3>Ajouter une addresse :</h3>
-    <form [formGroup]="paymentForm" class="flex-crt">
-        <div
-        class="form-box-payment-pyt flex-crt">
+
+
+        <div class="form-box-payment-pyt flex-crt">
             <label for="prenom">Prénom : </label>
             <input type="text" id="prenom"
             formControlName="delivery_prenom">
 
-              <div class="alert-danger" *ngIf="paymentForm.controls['delivery_prenom'].errors?.['required'] && isValidInput('delivery_prenom')">
+            <div *ngIf="isValidInput('delivery_prenom')" class="alert-danger">
+              <div class="alert-danger" *ngIf="prenom?.['required']">
                 Ce champs est obligatoire.
               </div>
-              <div class="alert-danger" *ngIf="paymentForm.controls['delivery_prenom'].errors?.['minlength']">
-                Le nom doit avoir plus de 3 caractères.
+              <div class="alert-danger" *ngIf="prenom?.['minlength']">
+                Le prenom doit avoir plus de 3 caractères.
               </div>
-
+            </div>
         </div>
+
         <div class="form-box-payment-pyt flex-crt">
             <label for="nom">Nom de famille : </label>
             <input type="text" id="nom" formControlName="delivery_nom">
             <div *ngIf="isValidInput('delivery_nom')" class="alert-danger">
-              <div> Ce champs est obligatoire. </div>
+              <div class="alert-danger" *ngIf="nom?.['required']">
+                Ce champs est obligatoire.
+              </div>
+              <div class="alert-danger" *ngIf="nom?.['minlength']">
+                Le nom doit avoir plus de 3 caractères.
+              </div>
             </div>
         </div>
+
         <div class="form-box-payment-pyt flex-crt">
             <label for="email">Email : </label>
             <input type="text" id="email" formControlName="delivery_email">
+            <div *ngIf="isValidInput('delivery_email')" class="alert-danger">
+              <div class="alert-danger" *ngIf="email?.['required']"> Ce champs est obligatoire. </div>
 
-              <div class="alert-danger" *ngIf="paymentForm.controls['delivery_email'].errors?.['required'] && isValidInput('delivery_email')"> Ce champs est obligatoire. </div>
-
-              <div class="alert-danger" *ngIf="paymentForm.controls['delivery_email'].errors?.['email']"> Email non valide.
+              <div class="alert-danger" *ngIf="email?.['email']"> Email non valide.
               </div>
-
+              </div>
         </div>
+
         <div class="form-box-payment-pyt flex-crt">
             <label for="portable">Portable : </label>
             <input type="text" id="portable" formControlName="delivery_portable">
-
-              <div class="alert-danger" *ngIf=" paymentForm.controls['delivery_portable'].errors?.['required'] && isValidInput('delivery_portable')"> Ce champs est obligatoire. </div>
-              <div class="alert-danger" class="alert-danger" *ngIf="paymentForm.controls['delivery_portable'].errors?.['minlength']">
+            <div *ngIf="isValidInput('delivery_portable')" class="alert-danger">
+              <div class="alert-danger" *ngIf="portable?.['required']"> Ce champs est obligatoire. </div>
+              <div class="alert-danger" class="alert-danger" *ngIf="portable?.['minlength']">
                 Le numéro de téléphone est non valide.
               </div>
+            </div>
         </div>
+
         <div class="form-box-payment-pyt flex-crt">
             <label for="delivery_address">Addresse de livraison : </label>
             <input type="text" id="delivery_address" formControlName="delivery_address">
+
             <div *ngIf="isValidInput('delivery_address')" class="alert-danger">
-              <div> Ce champs est obligatoire. </div>
+              <div class="alert-danger" *ngIf="address?.['required']"> Ce champs est obligatoire. </div>
             </div>
         </div>
+
         <div class="form-box-payment-pyt flex-crt">
             <label for="pays">Pays : </label>
             <input type="text" id="pays" formControlName="delivery_pays">
+
             <div *ngIf="isValidInput('delivery_pays')" class="alert-danger">
-              <div> Ce champs est obligatoire. </div>
+              <div class="alert-danger" *ngIf="pays?.['required']"> Ce champs est obligatoire. </div>
+              <div class="alert-danger" class="alert-danger" *ngIf="pays?.['minlength']">
+                Le nom du pays doit avoir plus de 4 caractères.
+              </div>
             </div>
         </div>
+
         <input type="submit"
         [disabled]="paymentForm.invalid"
         [class.isDisabled]="paymentForm.invalid"
         (click)="getDeliveryAddress()" value="Enregistrer">
     </form>
+
   </div>
 
-  
+  <ng-template #showAddressContent>
+    <h3>Vos informations : </h3>
+    <div style="padding-left: 30px" *ngIf="getItemFromStorage() !== null">
+        <p>Prénom : <span>{{ dataFromStorage.delivery_prenom }}</span></p>
+        <p>Nom : <span>{{ dataFromStorage.delivery_nom }}</span></p>
+        <p>Portable : <span>{{ dataFromStorage.delivery_portable }}</span></p>
+        <p>Email : <span>{{ dataFromStorage.delivery_email }}</span></p>
+        <p>Adresse : <span>{{ dataFromStorage.delivery_address }}</span></p>
+        <p>Pays: <span>{{ dataFromStorage.delivery_pays }}</span></p>
+    </div>
+
+  </ng-template>
+
