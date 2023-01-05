@@ -54,3 +54,7 @@ form input[type="submit"] {
   color: tomato;
   border-color: tomato;
 }
+
+span {
+  font-weight: 600;
+}
