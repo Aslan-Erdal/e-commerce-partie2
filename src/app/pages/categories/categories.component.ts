@@ -10,6 +10,8 @@ import { ProductsService } from 'src/app/services/products/products.service';
 })
 export class CategoriesComponent {
   Products: Product[] = [];
+  categories: string | null = this.getCategorie();
+
   constructor(
     private productsService: ProductsService,
     private activatedRout: ActivatedRoute,
@@ -21,6 +23,7 @@ export class CategoriesComponent {
     this.activatedRout.params.subscribe((routeParams) => {
       this.getProduct();
     });
+    this.getCategorie();
   }
   getProduct(): void {
     const productsFound = this.productsService.getProductJender(
@@ -34,7 +37,7 @@ export class CategoriesComponent {
   }
   getCategorie(): string | null {
     const categories = this.activatedRout.snapshot.paramMap.get('categorie');
-    console.log(categories);
+    console.log('param categories', categories);
     return categories;
   }
 }

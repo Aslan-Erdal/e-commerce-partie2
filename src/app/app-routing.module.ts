@@ -16,7 +16,10 @@ import { ProductsComponent } from './pages/products/products.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'categories/:categorie', component: CategoriesComponent },
-  { path: 'category', component: CategoryComponent },
+  {
+    path: 'categories/:categorie/:sousCategorie',
+    component: CategoryComponent,
+  },
   { path: 'product', component: ProductComponent },
 
   { path: 'products', component: ProductsComponent },

@@ -106,7 +106,7 @@ export const PRODUCTS: Product[] = [
       'assets/images/product-5.jpg',
     ],
     description: 'lorem ipsom',
-    categorie: 'homme',
+    categorie: 'femme',
     sousCategorie: 'chaussures',
     couleur: ['grise'],
     taille: ['41'],
