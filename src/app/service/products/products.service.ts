@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product, PRODUCTS } from 'src/app/mocks/products.mock';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -17,4 +18,5 @@ export class ProductsService {
   getnewProducts() {
     return PRODUCTS.splice(1);
   }
+
 }
