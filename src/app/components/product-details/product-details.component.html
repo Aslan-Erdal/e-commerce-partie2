@@ -1,11 +1,11 @@
-<section>
+<!-- <section>
   <a href="#"
     ><img
       class="promo"
       src="assets/images/img/promotion.png"
       alt="bannière_promotion"
   /></a>
-</section>
+</section> -->
 
 <main>
   <section *ngIf="product" class="flex">
@@ -19,8 +19,12 @@
       </div>
     </div>
 
-    <div>
-      <img src="{{ product.image[0] }}" alt="modèle_homme_pantalon" />
+    <div class="div-image-principale">
+      <img
+        src="{{ product.image[0] }}"
+        alt="modèle_homme_pantalon"
+        class="image-principale"
+      />
       <img
         class="heart"
         src="assets/images/img/🦆 icon _heart_.png"
