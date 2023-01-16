@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Product, PRODUCTS } from 'src/app/mocks/products.mock';
 
@@ -10,7 +10,8 @@ import { Product, PRODUCTS } from 'src/app/mocks/products.mock';
 export class HeaderComponent {
   Products: Product[] = [];
   formSearch!: FormGroup;
-  keys = '';
+  // keys = '';
+  @Output() searchEvent = new EventEmitter();
   constructor(private formBuilder: FormBuilder) {}
   ngOnInit() {
     this.formSearch = this.formBuilder.group({
@@ -27,6 +28,12 @@ export class HeaderComponent {
         product.categorie.includes(input) ||
         product.sousCategorie.includes(input)
     );
+    // console.log(searchProducts);
     return searchProducts;
+  }
+  addSearch() {
+    const searchProducts = this.recherche();
+    console.log(searchProducts);
+    this.searchEvent.emit(searchProducts);
   }
 }
