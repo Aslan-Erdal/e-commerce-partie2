@@ -10,6 +10,7 @@ import { ProductsService } from 'src/app/services/products/products.service';
 export class HomeComponent {
   Products: Product[] = [];
   constructor(private serviceProducts: ProductsService) {}
+  
   ngOnInit() {
     this.Products = this.serviceProducts.getnewProducts();
   }

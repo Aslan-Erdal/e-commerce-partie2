@@ -1,37 +1,67 @@
  <!-- CART START HERE -->
       <h1>Panier</h1>
-      <div class="cart-article-crt flex-crt">
+
+      <!-- SEE WHAT CART OBJECT DOES CONTAIN! -->
+      <div *ngIf="cart !== null;">{{ cart | json }}</div>
+
+      <section *ngIf="cart.length === 0; else showCard">
+        <h2 class="cart-empty">Votre panier est vide!</h2>
+      </section>
+
+      <h3 *ngIf="cart.length > 0" class="flex-crt">Sous-total : <span>{{ this.cartService.totalPrice }} €</span></h3>
+
+
+      <ng-template #showCard>
+        <div class="cart-article-crt flex-crt" *ngFor="let item of cart; let index = index; let last = last" [ngClass]="{'last-item-of-cart': last}">
+
           <img
-              src="assets/images/img_article.png"
-              alt="image pantalon"
+              src="{{ item.product.image[0] }}"
+              alt="{{ item.product.name}}"
           />
           <div class="article-text-crt flex-crt">
-              <h2>Prix : 39.99</h2>
-              <p>Jeans lorem ipsum lorem lorem</p>
+
+          <span (click)="removeProduct(index)" class="remove-from-cart">&#10005;</span>
+
+              <h2>Prix : {{ item.product.price }} €</h2>
+              <p>{{ item.product.name }}</p>
               <p>
-                  lorem ipsum dolor sit amet, consectetur adipisicing
-                  elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore tempor incididunt ut labore et dolore
+                  {{ item.product.description }}
               </p>
               <form class="form-crt flex-crt">
-                  <label for="taille">Choisir</label>
-                  <select id="taille" name="taille">
-                      <option value="a domicile">Taille 32</option>
-                      <option value="point relais">taille 55</option>
-                      <option value="le jour meme">taille 45</option>
+
+                <select id="color" name="color" (change)="onColorChange($event, item)">
+                    <option *ngFor="let color of colors" [selected]="item.product.couleur[0] === color">{{color}}</option>
+                </select>
+
+                  <ng-container *ngTemplateOutlet="(item.product.sousCategorie == 'chaussures') ?  category2: category; context: { item : item}">
+
+                  </ng-container>
+
+                  <select id="qty" name="qty" (change)="onQtyChange($event, item)">
+                      <option *ngFor="let qt of qty" [selected]="item.quantity === qt">{{qt}}</option>
                   </select>
-                  <select id="taille" name="taille">
-                      <option value="qté">Qté</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                      <option value="7">7</option>
-                  </select>
-              </form>
-              <p>Ajoutez aux favoris</p>
+
+                </form>
+                <button class="favorite-button-crt flex-crt" (click)="addToFavorite(item.product)">Ajoutez aux favoris <img class="empty-heart-crt" [src]="inFavoris(item) ? './assets/icons/favoris_red.png' : './assets/icons/favoris-noir.png'" alt="favoris coeur"></button>
           </div>
       </div>
-      <h3 class="flex-crt">Sous-total : <span>39.99</span></h3>
+      <hr/>
+      </ng-template>
+
+      <ng-template #category let-item="item">
+        <select id="taille" name="taille" (change)="onSizeChange($event, item)">
+            <option *ngFor="let size of sizeWears" [selected]="item.product.taille[0] === size">{{size}}</option>
+        </select>
+      </ng-template>
+
+      <ng-template #category2 let-item="item">
+        <select id="taille" name="taille" (change)="onSizeChange($event, item)">
+          <option *ngFor="let size of sizeShoes" [selected]="item.product.taille[0] === size">{{size}}</option>
+      </select>
+      </ng-template>
+
+      <!-- <ng-template #favorite>
+        <span *ngIf="true" class="fill-heart-crt"><img  src="./assets/icons/favoris-noir.png" alt="favoris coeur"></span>
+      </ng-template> -->
+
+

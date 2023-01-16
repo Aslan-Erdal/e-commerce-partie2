@@ -1,6 +1,7 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { OrderProduct, OrderService } from 'src/app/services/order/order.service';
 
 @Component({
   selector: 'app-delivery-address',
@@ -12,15 +13,14 @@ export class DeliveryAddressComponent implements OnInit {
   public validationErrors: string[] = [];
   public dataFromStorage: any;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private orderService: OrderService ) { }
 
   ngOnInit(): void {
      this.sendDeliveryAddress();
-     this.initLocal();
-  }
-
-  initLocal() {
-    this.dataFromStorage = this.getItemFromStorage();
+     this.orderService.getOrder();
   }
 
   public sendDeliveryAddress() {
@@ -38,33 +38,45 @@ export class DeliveryAddressComponent implements OnInit {
 
   public getDeliveryAddress() {
     this.validationErrors = [];
+    const order = this.orderService.getOrder();
+
+    const existingOrder = order.find((product: OrderProduct) => product.id === 1);
 
     console.log(this.paymentForm.controls);
 
     if (this.paymentForm.invalid) {
       return;
-      Object.keys(this.paymentForm.controls).forEach(control => {
-        const currentInput = this.paymentForm.get(control);
-        if(currentInput && currentInput.status === "INVALID") {
-          this.validationErrors.push(control);
-        }
-        console.log(control, currentInput);
-      });
+      // Object.keys(this.paymentForm.controls).forEach(control => {
+      //   const currentInput = this.paymentForm.get(control);
+      //   if(currentInput && currentInput.status === "INVALID") {
+      //     this.validationErrors.push(control);
+      //   }
+      //   console.log(control, currentInput);
+      // });
     } else {
       console.log(this.paymentForm.value);
-      this.addItemToStorage(JSON.stringify(this.paymentForm.value));
-      this.initLocal();
+      console.log(existingOrder);
+
+      if(existingOrder) {
+        const orderId = order.indexOf(existingOrder);
+      order[orderId].orderAddress = this.paymentForm.value;
+      console.log("ORDER ID : ", order[orderId].orderAddress);
+      }
+      this.orderService.saveOrder(order);
+      this.orderService.getOrder();
      // this.router.navigate(['/payment-success']);
     }
   }
 
-  public addItemToStorage(item: string) {
-    localStorage.setItem('address', item);
-  }
+  // public addItemToStorage(item: string) {
+  //   localStorage.setItem('address', item);
+  // }
 
   public getItemFromStorage() {
     return JSON.parse(localStorage.getItem('address')!)
   }
+
+  // -------------------------------------------------->
 
   isValidInput(fieldName: string): boolean {
     return (

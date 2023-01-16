@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from 'src/app/services/cart/cart.service';
 
 @Component({
   selector: 'app-article-payment',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./article-payment.component.css']
 })
 export class ArticlePaymentComponent {
+
+  constructor(public cartService: CartService) { }
+
+  ngOnInit(): void {
+    
+  }
 
 }

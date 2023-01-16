@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from 'src/app/services/cart/cart.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Product, PRODUCTS } from 'src/app/mocks/products.mock';
 
@@ -8,6 +9,13 @@ import { Product, PRODUCTS } from 'src/app/mocks/products.mock';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
+
+  constructor(public cartService: CartService) {}
+
+  ngOnInit(): void {
+    this.cartService.getTotalQuantity();
+  }
+
   Products: Product[] = [];
   formSearch!: FormGroup;
   keys = '';

@@ -1,4 +1,4 @@
 <main class="cart-container-crt flex-crt">
-  <app-panier-card class="box-article-crt flex-crt"></app-panier-card>
-  <app-total-panier class="total-box-crt"></app-total-panier>
+  <app-panier-card [cart]="currentCartProduct" [favoris]="currentFavorisProduct"  (newCardEvent)="removeProduct($any($event))" class="box-article-crt flex-crt"></app-panier-card>
+  <app-total-panier *ngIf="currentCartProduct.length > 0" class="total-box-crt"></app-total-panier>
 </main>

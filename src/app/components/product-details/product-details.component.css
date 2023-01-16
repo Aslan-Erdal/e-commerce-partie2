@@ -1,3 +1,4 @@
+
 .flex {
   display: flex;
   justify-content: space-around;
@@ -28,6 +29,7 @@
   position: absolute;
   top: 709px;
   left: 512px;
+  cursor: pointer;
 }
 
 .detail,

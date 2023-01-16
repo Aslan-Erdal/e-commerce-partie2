@@ -13,7 +13,7 @@
       <div class="product-image">
         <span class="discount-tag">-50% </span>
         <img src="{{ item.image[0] }}" class="product-thumb" alt="" />
-        <button class="card-btn">ajouter au panier</button>
+        <button class="card-btn" (click)="addToCart(item)">ajouter au panier</button>
       </div>
       <div class="product-info">
         <h2 class="product-brand">{{ item.categorie }}</h2>
