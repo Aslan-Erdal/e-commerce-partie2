@@ -7,8 +7,8 @@
   padding: 20px;
   margin-bottom: 80px;
   /* border: 1px solid black; */
-  margin-left: 8vw;
-  margin-right: 8vw;
+  margin-left: 4vw;
+  margin-right: 4vw;
 }
 
 .product-category {
@@ -210,11 +210,11 @@
 }
 .container h2 {
   text-align: center;
-  /* margin-bottom: 40px; */
+
   font-weight: bold;
   background: white;
   padding: 1.5rem 0;
   font-size: 1.5rem;
-  /* height: 71px; */
+
   margin-top: 80px;
 }

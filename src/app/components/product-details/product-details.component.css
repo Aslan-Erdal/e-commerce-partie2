@@ -1,3 +1,46 @@
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+.column {
+  flex-direction: column;
+  margin: 40px;
+}
+
+.column img {
+  height: 161px;
+  width: 107px;
+  background: white;
+  padding: 20px;
+}
+
+.bigpics {
+  height: 887px;
+  width: 583px;
+  background: white;
+  padding: 40px;
+  margin: 40px;
+  position: relative;
+}
+
 .heart {
+  position: absolute;
+  top: 709px;
+  left: 512px;
   cursor: pointer;
+}
+
+.detail,
+.livraison {
+  background: white;
+  padding: 20px;
+}
+
+.image-principale {
+  width: 583px;
+}
+.div-image-principale {
+  position: relative;
 }

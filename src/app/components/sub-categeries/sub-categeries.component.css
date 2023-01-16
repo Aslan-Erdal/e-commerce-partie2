@@ -1,0 +1,16 @@
+p {
+  color: white;
+  font-size: 1.25rem;
+}
+.div-categories {
+  flex-basis: 45vw;
+  justify-content: space-between;
+  border: 1px solid white;
+  padding: 0.75rem;
+  border-radius: 6px;
+}
+
+a {
+  color: white;
+  font-size: 1.25rem;
+}
