@@ -1,38 +1,37 @@
-
-
 <header>
+  <a routerLink="/">
+    <img
+      src="assets/images/img/logo_FAH_blanc_mini_82.png"
+      alt="logo_FAH_blanc"
+  /></a>
 
-    <a routerLink="/"> <img src="assets/images/img/logo_FAH_blanc_mini_82.png" alt="logo_FAH_blanc"></a>
+  <app-navigation></app-navigation>
 
-    <app-navigation></app-navigation>
+  <div class="flex iconav">
+    <form class="flex formulaire" [formGroup]="formSearch">
+      <input
+        class="search visibility-none"
+        type="text"
+        id="search"
+        formControlName="search"
+      />
+      <button (click)="recherche()">
+        <img
+          class="search-white"
+          src="assets/icons/searchnormal.png"
+          alt=""
+          id="search-white"
+        />
+      </button>
+    </form>
 
-    <div class="flex iconav">
-        <form class="flex formulaire">
-            <input
-                class="search visibility-none"
-                type="text"
-                name=""
-                id="input-search"
-            >
-            <button>   
-                <img
-                class="search-white"
-                src="assets/icons/searchnormal.png"
-                alt=""
-                id="search-white"
-            />
-            </button>
-
-        </form>
-
-        <div class="flex icon">
-           <a routerLink="/"> <img class="" src="assets/icons/user.png" alt="icon_compte"> </a>
-            <a routerLink="/cart"> <img class="" src="assets/icons/panier.png" alt="icon_panier"></a>
-        </div>
-
+    <div class="flex icon">
+      <a routerLink="/">
+        <img class="" src="assets/icons/user.png" alt="icon_compte" />
+      </a>
+      <a routerLink="/cart">
+        <img class="" src="assets/icons/panier.png" alt="icon_panier"
+      /></a>
     </div>
-
-
-
+  </div>
 </header>
-
