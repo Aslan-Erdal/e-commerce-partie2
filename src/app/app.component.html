@@ -1,5 +1,9 @@
-<app-header></app-header>
+<app-header (searchEvent)="search($event)"></app-header>
 
 <router-outlet></router-outlet>
+<div class="container">
+  <h2 *ngIf="Products">Les resultats de recherche</h2>
+</div>
+<app-products-list [Products]="Products"></app-products-list>
 
 <app-footer></app-footer>
