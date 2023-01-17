@@ -45,5 +45,12 @@ export class HeaderComponent {
   addSearch() {
     this.searchEvent.emit(this.getInput());
     console.log(typeof this.getInput());
+    const searchContainer = document.getElementById('searchContainer');
+    if (searchContainer) {
+      window.scrollTo({
+        top: searchContainer.offsetTop,
+        behavior: 'smooth',
+      });
+    }
   }
 }
