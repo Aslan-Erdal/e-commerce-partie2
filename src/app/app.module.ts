@@ -28,6 +28,7 @@ import { ArticlePaymentComponent } from './components/article-payment/article-pa
 import { PaymentCreditCardComponent } from './components/payment-credit-card/payment-credit-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
+import { HotToastModule } from '@ngneat/hot-toast';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,17 @@ import { PaymentSuccessComponent } from './pages/payment-success/payment-success
     ArticlePaymentComponent,
     PaymentCreditCardComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HotToastModule.forRoot(),
+    HotToastModule.forRoot({
+      reverseOrder: true,
+      dismissible: true,
+      autoClose: false,
+    }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

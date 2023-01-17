@@ -1,18 +1,25 @@
   <!-- SUM START HERE -->
       <h2>Total</h2>
       <hr />
-      <h3>Sous-total : <span>39.99</span></h3>
+      <h3>Sous-total : <span>{{ this.cartService.totalPrice }} €</span></h3>
+      <h1>Quantité : {{ this.cartService.productQuantity }}</h1>
       <form>
           <label for="livraison">Livraison :</label>
 
-          <select id="livraison" name="livraison" value="choisir">
+          <!--
+            <select id="color" name="color" (change)="onColorChange($event, item)">
+              <option *ngFor="let color of colors" [selected]="item.product.couleur[0] === color">{{color}}</option>
+            </select>
+          -->
+
+          <select id="livraison" name="livraison">
               <option selected value="choisir">Choisir</option>
-              <option value="a domicile">a domicile</option>
-              <option value="point relais">point relais</option>
-              <option value="le jour meme">le jour meme</option>
+              <option value="a domicile">à domicile</option>
+              <option value="point relais">Point relais</option>
+              <option value="le jour meme">Le jour même</option>
           </select>
           <a routerLink="/payment"
-              ><input type="button" value="Paiement"
+              ><input (click)="addProductOrder(this.cartService.getCart())" type="button" value="Paiement"
           /></a>
       </form>
       <div>

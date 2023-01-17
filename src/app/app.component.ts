@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from './mocks/products.mock';
+import { Product, PRODUCTS } from './mocks/products.mock';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +8,16 @@ import { Product } from './mocks/products.mock';
 })
 export class AppComponent {
   title = 'e-commerce-partie2';
-  productsSearch!: Product[];
-  addsearch(products: object) {
-    console.log(products);
+  Products!: Product[];
+
+  search(newKey: string) {
+    const searchProducts = PRODUCTS.filter(
+      (product) =>
+        product.categorie.includes(newKey) ||
+        product.sousCategorie.includes(newKey)
+    );
+    console.log(searchProducts);
+    this.Products = searchProducts;
+    return this.Products;
   }
 }

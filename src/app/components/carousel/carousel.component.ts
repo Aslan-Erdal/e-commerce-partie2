@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/mocks/products.mock';
+import { CartProduct, CartService } from 'src/app/services/cart/cart.service';
 import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
@@ -10,9 +11,12 @@ import { ProductsService } from 'src/app/services/products/products.service';
 })
 export class CarouselComponent {
   productsPromos: Product[] = [];
+  quantity: number = 1;
+
   constructor(
     private productsService: ProductsService,
-    private router: Router
+    private router: Router,
+    private cartService: CartService,
   ) {}
   ngOnInit() {
     this.getProductsPromos();
@@ -54,4 +58,18 @@ export class CarouselComponent {
       });
     });
   }
+
+
+  // method for adding a product to CART (created by erdal)
+  addToCart(item: Product) {
+
+    if (!item) return;
+
+    const cartProduct: CartProduct = {
+      product: item,
+      quantity: this.quantity,
+    }
+    this.cartService.addProductToCart(cartProduct);
+  }
+
 }

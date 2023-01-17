@@ -26,8 +26,13 @@
         class="image-principale"
       />
       <img
+        (click)="addToFavorite($event, product); (false)"
         class="heart"
-        src="assets/images/img/🦆 icon _heart_.png"
+        [src]="
+          isInFavorite(product)
+            ? './assets/icons/favoris_red.png'
+            : 'assets/images/img/🦆 icon _heart_.png'
+        "
         alt="coeur_favoris"
       />
     </div>
@@ -45,8 +50,8 @@
           </option>
         </select>
 
-        <button>
-          <a href="#">AJOUTER AU PANIER</a>
+        <button (click)="addToCart()">
+          <a>AJOUTER AU PANIER</a>
         </button>
       </div>
 

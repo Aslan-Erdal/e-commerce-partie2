@@ -28,6 +28,7 @@
   position: absolute;
   top: 709px;
   left: 512px;
+  cursor: pointer;
 }
 
 .detail,
@@ -41,4 +42,5 @@
 }
 .div-image-principale {
   position: relative;
+  margin: 40px 0;
 }

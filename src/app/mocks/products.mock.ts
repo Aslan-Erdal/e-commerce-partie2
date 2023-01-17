@@ -152,3 +152,43 @@ export const PRODUCTS: Product[] = [
     promos: false,
   },
 ];
+
+
+// User Interface
+
+export interface User {
+  id: number,
+  name: string,
+  username: string,
+  email: string,
+  password: string,
+  address: Address,
+  phone: "02309423949234",
+  website: "www.fah.com"
+
+}
+
+export interface Address {
+    street: string,
+    number: number,
+    city: string,
+    zipCode: number,
+    country: string
+}
+
+export const USERS: User[] = [{
+  id: 1,
+  name: "Rocky",
+  username: "balboa",
+  email: 'rbalboa@blabla.com',
+  password: "azerty",
+  address: {
+    street: ' Rue Kuala Lumpur',
+    number: 14,
+    city: 'Montreuil',
+    zipCode: 93100,
+    country: 'France'
+  },
+  phone: "02309423949234",
+  website: "www.fah.com"
+  }]
