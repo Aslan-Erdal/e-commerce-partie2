@@ -10,17 +10,13 @@ import { Product, PRODUCTS } from 'src/app/mocks/products.mock';
 })
 export class HeaderComponent {
 
-  constructor(public cartService: CartService) {}
-
-  ngOnInit(): void {
-    this.cartService.getTotalQuantity();
-  }
-
   Products: Product[] = [];
   formSearch!: FormGroup;
   keys = '';
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, public cartService: CartService) {}
   ngOnInit() {
+    this.cartService.getTotalQuantity();
+
     this.formSearch = this.formBuilder.group({
       search: [null],
     });

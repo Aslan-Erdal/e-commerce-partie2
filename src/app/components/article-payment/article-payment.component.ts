@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { CartService } from 'src/app/services/cart/cart.service';
+import { Product } from 'src/app/mocks/products.mock';
+import { CartProduct, CartService } from 'src/app/services/cart/cart.service';
+import { OrderProduct, OrderService } from 'src/app/services/order/order.service';
 
 @Component({
   selector: 'app-article-payment',
@@ -7,11 +9,25 @@ import { CartService } from 'src/app/services/cart/cart.service';
   styleUrls: ['./article-payment.component.css']
 })
 export class ArticlePaymentComponent {
+  public articles!: OrderProduct;
 
-  constructor(public cartService: CartService) { }
+
+  constructor(public orderService: OrderService) { }
 
   ngOnInit(): void {
-    
+    this.getProductsFromCart();
+    console.log("ARTICLE : ", this.articles);
+
+  }
+
+  getProductsFromCart() {
+
+    const order = this.orderService.getOrder();
+
+    this.articles = order[0];
+
+    return this.articles;
+
   }
 
 }

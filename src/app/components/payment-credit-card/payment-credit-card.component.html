@@ -1,7 +1,7 @@
 <!-- PAIEMENT VISA START HERE -->
   <h2>Paiement</h2>
   <div class="card-infos-pyt">
-      <form [formGroup]="cardForm" class="form-card-infos-pyt flex-crt" *ngIf="this.getItemFromStorage() !== null else showCardContent">
+      <form [formGroup]="cardForm" class="form-card-infos-pyt flex-crt" *ngIf="this.initAddress() !== null else showCardContent">
           <div class="form-box-payment-pyt">
               <label for="num_card">Numéro de la carte : </label>
               <input class="input-cart" type="text" formControlName="num_card" id="num_card">

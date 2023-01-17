@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import * as shortUUID from 'short-uuid';
+import { Router } from '@angular/router';
+import { OrderProduct, OrderService } from 'src/app/services/order/order.service';
 
 @Component({
   selector: 'app-payment-success',
@@ -7,13 +8,20 @@ import * as shortUUID from 'short-uuid';
   styleUrls: ['./payment-success.component.css']
 })
 export class PaymentSuccessComponent {
+  public orderList!: OrderProduct;
 
-  constructor() { }
+  constructor(private orderService: OrderService, private router: Router) { }
 
-public myId = shortUUID.generate();
 
 ngOnInit(): void {
-  console.log(this.myId);
+  this.initOrder();
+  if(this.orderList?.orderAddress == undefined) this.router.navigate(['/cart'])
+}
+
+public initOrder(): any {
+  const order = this.orderService.getOrder();
+  this.orderList = order[0];
+  return this.orderList;
 }
 
 }

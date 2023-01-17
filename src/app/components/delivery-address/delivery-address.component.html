@@ -2,7 +2,7 @@
   <h2>Addresse de livraison</h2>
   <hr>
   <div>
-    <form [formGroup]="paymentForm" class="flex-crt"  *ngIf="this.getItemFromStorage() == null else showAddressContent">
+    <form [formGroup]="paymentForm" class="flex-crt"  *ngIf="this.orderAddress == null else showAddressContent">
     <h3>Ajouter une addresse :</h3>
 
 
@@ -87,13 +87,13 @@
 
   <ng-template #showAddressContent>
     <h3>Vos informations : </h3>
-    <div style="padding-left: 30px" *ngIf="getItemFromStorage() !== null">
-        <p>Prénom : <span>{{ dataFromStorage.delivery_prenom }}</span></p>
-        <p>Nom : <span>{{ dataFromStorage.delivery_nom }}</span></p>
-        <p>Portable : <span>{{ dataFromStorage.delivery_portable }}</span></p>
-        <p>Email : <span>{{ dataFromStorage.delivery_email }}</span></p>
-        <p>Adresse : <span>{{ dataFromStorage.delivery_address }}</span></p>
-        <p>Pays: <span>{{ dataFromStorage.delivery_pays }}</span></p>
+    <div style="padding-left: 30px" *ngIf="this.orderAddress !== null">
+        <p>Prénom : <span>{{ this.orderAddress.delivery_prenom }}</span></p>
+        <p>Nom : <span>{{ this.orderAddress.delivery_nom }}</span></p>
+        <p>Portable : <span>{{ this.orderAddress.delivery_portable }}</span></p>
+        <p>Email : <span>{{ this.orderAddress.delivery_email }}</span></p>
+        <p>Adresse : <span>{{ this.orderAddress.delivery_address }}</span></p>
+        <p>Pays: <span>{{ this.orderAddress.delivery_pays }}</span></p>
     </div>
 
   </ng-template>

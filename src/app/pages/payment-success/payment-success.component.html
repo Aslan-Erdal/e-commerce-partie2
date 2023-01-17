@@ -3,9 +3,17 @@
 <br>
 <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
   <div>
-    <p class="bravo">Bravo, votre paiement a été effectué avec succès!</p>
-    <p>Votre n° de commande est : {{ myId }}</p>
-    <p>Vous receverez un email prochainement!</p>
+    <h4 class="bravo">Bravo, votre paiement a été effectué avec succès!</h4>
+    <p>Votre n° de commande est : <strong>{{orderList.order_number}}</strong></p>
+    <p>Vous serez livrer {{ orderList.delivery_method?.toLowerCase() }}.</p>
+    <p>Vous receverez un email prochainement à l'adresse e-mail : <strong>{{orderList.orderAddress?.delivery_email}}</strong></p>
+    <div>
+      <strong>Votre adresse est : </strong>
+      <p>Mr {{ orderList.orderAddress?.delivery_prenom }} {{ orderList.orderAddress?.delivery_nom }}, <br>
+        {{ orderList.orderAddress?.delivery_address }} <br> {{ orderList.orderAddress?.delivery_pays }}</p>
+      <p></p>
+
+    </div>
   </div>
 </div>
 <br>

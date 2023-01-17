@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { OrderProduct, OrderService } from 'src/app/services/order/order.service';
 
@@ -9,11 +8,12 @@ import { OrderProduct, OrderService } from 'src/app/services/order/order.service
   styleUrls: ['./total-panier.component.css']
 })
 export class TotalPanierComponent {
-  public delivery_form!: FormGroup;
 
   private quantity: number = 0;
 
-  constructor(public cartService: CartService, private orderService: OrderService, private formBuilder: FormBuilder) { }
+  public delivery_method: string | null = null;
+
+  constructor(public cartService: CartService, private orderService: OrderService) { }
 
   ngOnInit(): void {
     this.cartService.getTotalPrice();
@@ -23,12 +23,9 @@ export class TotalPanierComponent {
     const order = this.orderService.getOrder();
     console.log(order[0].id);
 
-  }
+    console.log("DELIVERY_METHOD : ", this.delivery_method);
 
-  addDeliveryMethod() {
-    this.delivery_form = this.formBuilder.group({
-      
-    });
+
   }
 
   addProductOrder(products: OrderProduct) {
@@ -43,12 +40,28 @@ export class TotalPanierComponent {
       },
       orderAddress: null,
       total : this.cartService.totalPrice,
-      delivery_method: null,
+      delivery_method: this.delivery_method,
       order_number: null
     }
 
     this.orderService.addProductOrder(orderProduct);
 
+  }
+
+  public changeDelivery(event: any) {
+
+    if(event.target.value == 'Choisir') this.delivery_method = null;
+    console.log(this.delivery_method);
+
+
+    console.log("DELIVERY VALUE : ",event.target.value);
+
+    this.delivery_method = event.target.value;
+
+  }
+
+  public preventToSwitch() {
+    if(this.delivery_method == 'Choisir') return;
   }
 
   // public onColorChange(event: any, cartProduct: CartProduct) {

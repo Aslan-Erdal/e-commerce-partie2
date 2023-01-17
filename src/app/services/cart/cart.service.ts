@@ -53,17 +53,14 @@ export class CartService {
       console.log(cart[cartProductId]);
     } else {
       cart.push(cartProduct);
-      this.toastService.success(`${cartProduct.product.name} a été ajouté au panier!`, {
+      const adding = this.toastService.success(`${cartProduct.product.name} a été ajouté au panier!`, {
         position: 'top-center',
-        autoClose: false,
+        autoClose: true,
         dismissible: true,
-        style: {
-          border: '1px solid #2769B5',
-          padding: '16px',
-          fontSize: '20px',
-          color: '#713200',
-        },
       });
+      setTimeout(() => {
+        adding.close();
+      }, 1500);
     }
     this.saveCart(cart);
     this.getTotalQuantity();
@@ -74,17 +71,14 @@ export class CartService {
     cart.splice(index, 1);
     this.saveCart(cart);
     this.getTotalQuantity();
-    this.toastService.success(`Le produit a été supprimé du panier!`, {
-      position: 'top-center',
-      autoClose: false,
-      dismissible: true,
-      style: {
-        border: '1px solid #2769B5',
-        padding: '16px',
-        fontSize: '20px',
-        color: '#713200',
-      },
-    });
+      const remove = this.toastService.success('Le produit a été supprimé du panier!!', {
+        position: 'top-center',
+        autoClose: true,
+        dismissible: true,
+      });
+      setTimeout(() => {
+        remove.close();
+      }, 1500);
   }
 
   public getTotalPrice(): void {

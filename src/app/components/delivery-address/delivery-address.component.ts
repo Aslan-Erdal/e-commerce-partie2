@@ -1,7 +1,7 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { OrderProduct, OrderService } from 'src/app/services/order/order.service';
+import { DeliveryAddress, OrderProduct, OrderService } from 'src/app/services/order/order.service';
 
 @Component({
   selector: 'app-delivery-address',
@@ -12,15 +12,18 @@ export class DeliveryAddressComponent implements OnInit {
   public paymentForm!: FormGroup;
   public validationErrors: string[] = [];
   public dataFromStorage: any;
+  public orderAddress!: DeliveryAddress;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private orderService: OrderService ) { }
+    public orderService: OrderService ) { }
 
   ngOnInit(): void {
      this.sendDeliveryAddress();
-     this.orderService.getOrder();
+
+     this.initOrder();
+
   }
 
   public sendDeliveryAddress() {
@@ -32,6 +35,14 @@ export class DeliveryAddressComponent implements OnInit {
       delivery_address: [null, [Validators.required]],
       delivery_pays: [null, [Validators.required, Validators.minLength(4)]],
     });
+  }
+
+  public initOrder() {
+    const orderProduct = this.orderService.getOrder();
+
+     this.orderAddress = orderProduct[0].orderAddress;
+
+     console.log("ORDER : ", this.orderAddress);
   }
 
 
@@ -64,16 +75,11 @@ export class DeliveryAddressComponent implements OnInit {
       }
       this.orderService.saveOrder(order);
       this.orderService.getOrder();
-     // this.router.navigate(['/payment-success']);
+      this.initOrder();
+    //  this.router.navigate(['/payment']).then(() => {
+    //   window.location.reload();
+    // });
     }
-  }
-
-  // public addItemToStorage(item: string) {
-  //   localStorage.setItem('address', item);
-  // }
-
-  public getItemFromStorage() {
-    return JSON.parse(localStorage.getItem('address')!)
   }
 
   // -------------------------------------------------->

@@ -9,13 +9,15 @@ label {
   width: min(1440px, 100%);
   min-height: 90vh;
   gap: 50px;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 }
 
 .box-article-crt {
   flex-direction: column;
   width: min(675px, 100%);
+  margin-top: 56px;
+  margin-bottom: 56px;
 }
 
 .box-article-crt h3 {
@@ -44,7 +46,9 @@ label {
   min-height: 510px;
   flex-direction: column;
   justify-content: space-between;
+  align-self: flex-start;
   padding: 28px;
+  margin-top: 80px;
 
 }
 
