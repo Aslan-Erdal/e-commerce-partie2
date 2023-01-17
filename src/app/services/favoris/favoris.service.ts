@@ -49,30 +49,24 @@ export class FavorisService {
         favoris.splice(favorisProductId, 1);
         this.saveFavoris(favoris);
         this.getFavoris();
-        this.toastService.success(`${favorisProduct.product.name} a été supprimé des favoris!`, {
+        const adding = this.toastService.success(`${favorisProduct.product.name} a été supprimé des favoris!`, {
           position: 'top-center',
-          autoClose: false,
+          autoClose: true,
           dismissible: true,
-          style: {
-            border: '1px solid #2769B5',
-            padding: '16px',
-            fontSize: '20px',
-            color: '#713200',
-          },
         });
+        setTimeout(() => {
+          adding.close();
+        }, 1500);
     } else {
         favoris.push(favorisProduct);
-        this.toastService.success(`${favorisProduct.product.name} a été ajouté aux favoris!`, {
+        const remove = this.toastService.success(`${favorisProduct.product.name} a été ajouté aux favoris!`, {
           position: 'top-center',
-          autoClose: false,
+          autoClose: true,
           dismissible: true,
-          style: {
-            border: '1px solid #2769B5',
-            padding: '16px',
-            fontSize: '20px',
-            color: '#713200',
-          },
         });
+        setTimeout(() => {
+          remove.close();
+        }, 1500);
     }
     this.saveFavoris(favoris);
   }

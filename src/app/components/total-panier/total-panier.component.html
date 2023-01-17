@@ -6,20 +6,20 @@
       <form>
           <label for="livraison">Livraison :</label>
 
-          <!--
-            <select id="color" name="color" (change)="onColorChange($event, item)">
-              <option *ngFor="let color of colors" [selected]="item.product.couleur[0] === color">{{color}}</option>
-            </select>
-          -->
 
-          <select id="livraison" name="livraison">
-              <option selected value="choisir">Choisir</option>
-              <option value="a domicile">à domicile</option>
-              <option value="point relais">Point relais</option>
-              <option value="le jour meme">Le jour même</option>
+            <!-- <select id="delivery" name="delivery" (change)="onColorChange($event, item)">
+              <option *ngFor="let color of colors" [selected]="item.product.couleur[0] === color">{{color}}</option>
+            </select> -->
+
+
+          <select id="livraison" name="livraison" (change)="changeDelivery($event)">
+              <option selected value="Choisir">Choisir</option>
+              <option value="À domicile">À domicile</option>
+              <option value="Point relais">Point relais</option>
+              <option value="Le jour meme">Le jour même</option>
           </select>
-          <a routerLink="/payment"
-              ><input (click)="addProductOrder(this.cartService.getCart())" type="button" value="Paiement"
+          <a routerLink="/payment" [class.disabled]="delivery_method ? null : true"
+              ><input [disabled]="delivery_method == 'Choisir'" (click)="addProductOrder(this.cartService.getCart())" type="button" value="Paiement"
           /></a>
       </form>
       <div>

@@ -16,9 +16,9 @@
           </div>
 
           <!-- MY EMAIL BLOCK START HERE -->
-          <div class="email-payment-pyt">
+          <div class="email-payment-pyt" *ngIf="orderPayment.orderAddress?.delivery_email; else paymentEmail">
               <p>Votre email :
-                  <span>loremipsum@gmail.com</span>
+                  <span>{{orderPayment.orderAddress?.delivery_email}}</span>
               </p>
           </div>
 
@@ -32,3 +32,12 @@
 
         </main>
 
+
+        <ng-template #paymentEmail>
+          <div class="email-payment-pyt">
+            <p>Votre email :
+              <span>loremipsum@gmail.com</span>
+            </p>
+          </div>
+
+        </ng-template>

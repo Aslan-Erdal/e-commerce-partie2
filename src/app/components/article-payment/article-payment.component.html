@@ -1,16 +1,18 @@
 <!-- ARTICLE BOX START HERE -->
   <h2>Article</h2>
   <hr>
-  <div class="article-payment-pyt flex-crt">
-      <img src="assets/images/img_article_payment.png" alt="image pontalon">
-      <div class="article-textbox-pyt flex-pyt">
-          <h3>39.99</h3>
-          <p>Jeans lorem ipsum</p>
-          <p>Blue<span>W29</span><span>L29</span></p>
-          <p>Quantité: 1</p>
-      </div>
+  <div *ngIf="this.articles">
+    <div class="article-payment-pyt flex-crt" *ngFor="let article of articles.orderedProducts.product; let last=last" [ngClass]="{'last-item-of-article': last}">
+        <img class="article-payment-img-crt" src="{{article.product.image[0]}}" alt="image pontalon">
+        <div class="article-textbox-pyt flex-pyt">
+            <h3>{{article.product.price}} €</h3>
+            <p>{{article.product.name}}</p>
+            <p>{{ article.product.couleur }}<span>Taille : {{article.product.taille}}</span></p>
+            <p>Quantité: {{ article.quantity }}</p>
+        </div>
+    </div>
+    <hr>
+        <h3>Sous-total : <span><strong>{{ articles.total }}</strong> €</span></h3>
   </div>
-  <hr>
-      <h3>Sous-total : <span>39.99</span></h3>
 
 

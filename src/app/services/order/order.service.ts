@@ -65,9 +65,8 @@ export class OrderService {
     this.getOrder();
   }
 
-
-  public applyReduction() {
-
+  public applyReduction(orderProduct: OrderProduct) {
+    
   }
 
 }

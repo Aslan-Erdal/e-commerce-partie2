@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DeliveryAddress, OrderProduct, OrderService } from 'src/app/services/order/order.service';
+import * as shortUUID from 'short-uuid';
 
 @Component({
   selector: 'app-payment-credit-card',
@@ -9,16 +11,20 @@ import { Router } from '@angular/router';
 })
 export class PaymentCreditCardComponent implements OnInit{
   public cardForm!: FormGroup;
-
   public errorPayMessage!: string;
+  public months = ['Mois', '01','02', '03','04', '05', '06', '07', '08', '09', '10', '11', '12',];
+  public years = ['Année', '2023', '2024', '2025', '2026', '2027', '2028', '2029',];
+  public orderAddress!: DeliveryAddress;
+  public delivery_orderID = shortUUID.generate();
 
-  months = ['Mois', '01','02', '03','04', '05', '06', '07', '08', '09', '10', '11', '12',];
-  years = ['Année', '2023', '2024', '2025', '2026', '2027', '2028', '2029',];
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private orderService: OrderService) { }
 
   ngOnInit(): void {
     this.initCardForm();
+
+    this.initAddress();
+
   }
 
   public initCardForm() {
@@ -27,23 +33,38 @@ export class PaymentCreditCardComponent implements OnInit{
       month: [this.months[0], [Validators.required]],
       year: [this.years[0], [Validators.required]],
       cvv: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
-
     });
   }
 
+  public initAddress() {
+    const orderProduct = this.orderService.getOrder();
+
+    this.orderAddress = orderProduct[0].orderAddress;
+
+    return this.orderAddress;
+  }
+
   public onPay(): void  {
+    const order = this.orderService.getOrder();
+
+    const existingOrder = order.find((product: OrderProduct) => product.id === 1);
+
     if(this.cardForm.invalid) {
       this.errorPayMessage = "Veuillez renseigner tous les champs!";
     } else {
       this.errorPayMessage = "";
-      localStorage.clear();
-      this.router.navigate(['/payment-success']);
+      if(existingOrder){
+        const orderId = order.indexOf(existingOrder);
+      order[orderId].order_number = this.delivery_orderID;
+      console.log("ORDER ID : ", order[orderId].orderAddress);
+      }
+      this.orderService.saveOrder(order);
+      localStorage.removeItem('cart');
+      setTimeout(() => {
+        this.router.navigate(['/payment-success'])
+        .then(() => { window.location.reload();});
+      }, 1500);
     }
-  }
-
-
-  public getItemFromStorage() {
-    return JSON.parse(localStorage.getItem('address')!)
   }
 
   isValidInput(fieldName: string): boolean {

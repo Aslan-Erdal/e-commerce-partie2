@@ -9,8 +9,10 @@ import { Product, PRODUCTS } from 'src/app/mocks/products.mock';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
+
   Products: Product[] = [];
   formSearch!: FormGroup;
+  keys = '';
   // keys = '';
   @Output() searchEvent = new EventEmitter();
 
@@ -20,6 +22,8 @@ export class HeaderComponent {
   ) {}
 
   ngOnInit() {
+    this.cartService.getTotalQuantity();
+
     this.formSearch = this.formBuilder.group({
       search: [null],
     });

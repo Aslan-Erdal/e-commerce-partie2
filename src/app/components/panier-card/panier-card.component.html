@@ -2,7 +2,7 @@
       <h1>Panier</h1>
 
       <!-- SEE WHAT CART OBJECT DOES CONTAIN! -->
-      <div *ngIf="cart !== null;">{{ cart | json }}</div>
+      <!-- <div *ngIf="cart !== null;">{{ cart | json }}</div> -->
 
       <section *ngIf="cart.length === 0; else showCard">
         <h2 class="cart-empty">Votre panier est vide!</h2>

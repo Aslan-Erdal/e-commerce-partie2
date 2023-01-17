@@ -112,5 +112,6 @@ h3 {
 
 .box-article-payment-pyt {
   min-height: 500px;
-  padding: 30px;
+  padding: 0 30px 30px;
+  margin-top: 24px;
 }
