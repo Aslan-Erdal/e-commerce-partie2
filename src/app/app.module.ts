@@ -58,11 +58,17 @@ import { HotToastModule } from '@ngneat/hot-toast';
     ArticlePaymentComponent,
     PaymentCreditCardComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HotToastModule.forRoot(), HotToastModule.forRoot({
-    reverseOrder: true,
-    dismissible: true,
-    autoClose: false,
-  })],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HotToastModule.forRoot(),
+    HotToastModule.forRoot({
+      reverseOrder: true,
+      dismissible: true,
+      autoClose: false,
+    }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
